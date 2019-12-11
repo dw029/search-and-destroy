@@ -2,9 +2,18 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
-
+    var currentNode = linkedlist.head
+    const cache = {};
+    while (currentNode.next) {
+        if (currentNode.value.toString() in cache) {
+            return true;
+        } else {
+            cache[currentNode.value.toString()] = currentNode.value.toString();
+        }
+        currentNode = currentNode.next
+    }
+    return false;
 };
-
 
 /*
 EXTRA CREDIT:
